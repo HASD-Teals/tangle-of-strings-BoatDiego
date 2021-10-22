@@ -6,10 +6,9 @@ public class TangleOfStrings {
 
 	public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
-		Menu();
+		//Menu();
 		//Password();
-		
-		
+		vowels("WAck");
 	}
 
 	public static void Password() {
@@ -100,10 +99,35 @@ public class TangleOfStrings {
 		if (wordRecieve.contains(" ") ) {
 		
 	}
-		
-		
 	}
+		
 	
-	public static void vowels() {}
+	public static void caseInverse(String wordRecieve) {
+		for(int i = 0; i < wordRecieve.length();i++){
+			char Chara = wordRecieve.charAt(i);
+			if (Chara >= 'A'&& Chara <='Z') {
+				char Upper = wordRecieve.charAt(i);
+				String UpperS = String.valueOf(Upper);
+				System.out.print(UpperS.toLowerCase());
+			}
+			else if (Chara >= 'a'&&Chara <='z') {
+				char lower = wordRecieve.charAt(i);
+				String lowerS = String.valueOf(lower);
+				System.out.print(lowerS.toUpperCase());
+			}
+			
+			
+		}
+	}
+	//Online help https://www.tutorialspoint.com/Java-program-to-count-the-number-of-vowels-in-a-given-sentence
+	public static void vowels(String wordRecieve) {
+		for (int i = 0; i<wordRecieve.length(); i++)
+			char vowe = wordRecieve.CharAt(i);
+			if (vowe == 'a'||vowe == 'A'||vowe == 'I') {
+				
+			}
+		
+	
+	}
 }
 
