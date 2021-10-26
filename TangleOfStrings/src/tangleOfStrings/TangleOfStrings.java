@@ -8,7 +8,6 @@ public class TangleOfStrings {
 		System.out.println("Tangle of Strings");
 		//Menu();
 		//Password();
-		vowels("WAck");
 	}
 
 	public static void Password() {
@@ -24,51 +23,22 @@ public class TangleOfStrings {
 	
 	
 	public static void Menu() {
+		boolean quit = false;
+		while (quit == false) {	
 		Scanner AskWord = new Scanner(System.in);
 		System.out.println("Give me the word to absolutely destroy");
 		String wordRecieve = AskWord.nextLine();
 		System.out.print("You wrote "+wordRecieve);
 		System.out.println();
-		System.out.println("You get:");
-		phaseReverse(wordRecieve);
 		AskWord.close();
 		
-		Scanner Menu = new Scanner (System.in);
-		int Menus = Menu.nextInt();
-		if (Menus == 1) {
-			phaseReverse(wordRecieve);
-		}
-		
-		else if (Menus ==2) {
-			
-		}
-		else if (Menus ==3 ) {
-			
-		}
-		else if (Menus == 4) {
-			
-		}
-		
-		else if (Menus ==5 ) {
-			
-		}
-		else if (Menus == 6) {
-			
-		}
-		else if (Menus == 6) {
-			
-		}
-		else if (Menus == 7) {
-			
-		}
-		else if (Menus == 8) {
-			
-		}
-		else {
+		//Use Case here 
+		//		else {
 			System.out.println("Restart Program, failed to understand number");
 		}
-		Menu.close();
-	}
+		}
+	
+	
 	
 	/*public static String wordRecives() {
 		System.out.println("Tangle of Strings");
@@ -118,16 +88,39 @@ public class TangleOfStrings {
 			
 			
 		}
+		
 	}
-	//Online help https://www.tutorialspoint.com/Java-program-to-count-the-number-of-vowels-in-a-given-sentence
 	public static void vowels(String wordRecieve) {
-		for (int i = 0; i<wordRecieve.length(); i++)
-			char vowe = wordRecieve.CharAt(i);
-			if (vowe == 'a'||vowe == 'A'||vowe == 'I') {
+		int count = 0 ;
+		for (int i = 0; i<wordRecieve.length(); i++) {
+			char vowe = wordRecieve.charAt(i);
+			if (vowe == 'a'||vowe == 'e'||vowe == 'i'||vowe == 'o'||vowe =='u'||vowe =='A'||vowe == 'E'
+				|| vowe =='I'||vowe =='O'||vowe == 'U'){
+				//Adds another vowel
+				count++;
 				
 			}
-		
+			}
+		System.out.print("Number of Vowels: "+count);
 	
 	}
+	
+	public static void isMatch (String wordRecieve) {
+		System.out.println("Let's see if your String matches mine...");
+		if (wordRecieve.equals("Super Doggo")) {
+			System.out.println("Your String matches mine");
+		}
+		else {
+			System.out.println("Your String does not match mine and is deemed inferior");
+		}
+	}
+	
+	public static void findReplace (String wordRecieve) {
+		//work on this part
+		int begin = 0;
+		int end = 5;
+		String Target = wordRecieve.substring(begin, end);
+		String Replace = wordRecieve.replace( Target, "doggo");
+		System.out.print(Replace);
+	}
 }
-
