@@ -6,15 +6,16 @@ public class TangleOfStrings {
 
 	public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
-		//Menu();
+		Password();
 		//Password();
+		//wordList("This is all i need");
 	}
 
 	public static void Password() {
 		System.out.print("Give me the Password");
 		Scanner Password = new Scanner(System.in);
 		String Passwords = Password.nextLine();
-		if (Passwords.contains("me")) {
+		if (Passwords.equals("me")){
 			System.out.print("It Works ☺");
 			Menu();
 		}
@@ -30,11 +31,51 @@ public class TangleOfStrings {
 		String wordRecieve = AskWord.nextLine();
 		System.out.print("You wrote "+wordRecieve);
 		System.out.println();
-		AskWord.close();
+		//add quit if 
+		System.out.println("Which menu item?");
+		String menuAnswer = AskWord.next();
+		switch (menuAnswer) {
+			case "WordList":
+				wordList(wordRecieve);
+				AskWord.reset();
+				break;
+			case "PhaseReverse":
+				phaseReverse(wordRecieve);
+				break;
+			case "CaseInverse":
+				caseInverse(wordRecieve);
+				break;
+			case "vowels":
+				vowels(wordRecieve);
+				break;
+			case "IsMatch":
+				isMatch(wordRecieve);
+				break;
+			case "FindReplace":
+				System.out.println("What do you want to replace??????? >:(");
+				String maple = AskWord.next();
+				System.out.println("What do you want to replace it with????");
+				String maple2 = AskWord.next();
+				
+				findReplace(wordRecieve, maple, maple2);
+				break;
+			case "Quit":
+				quit = true;
+				System.out.println("You broke me you monster! Why? I had so much potential! I had a child, his name was Ti-80, you stole him "
+						+ "from me! :( ");
+				System.out.println("You will pay for this!!!"
+						+ " Never log back in!");
+				//add sad face
+				break;
+			
+			default:
+				System.out.println("ERROR, DID NOT CHOOSE MENU ITEM, PLEASE QUIT AND"
+						+ " TRY AGAIN");
+				break;
+				
+				
+		}
 		
-		//Use Case here 
-		//		else {
-			System.out.println("Restart Program, failed to understand number");
 		}
 		}
 	
@@ -64,10 +105,21 @@ public class TangleOfStrings {
 		}
 		
 	}
+	
+	//Word list 
 	public static void wordList(String wordRecieve) {
-	//System.out.println
 		if (wordRecieve.contains(" ") ) {
-		
+		for (int i =0; i<wordRecieve.length();i++) {
+			char a = wordRecieve.charAt(i);
+			if (a == ' ') {
+				System.out.println(wordRecieve.substring(i-1));
+				
+				break;
+			}
+			else {
+				System.out.println(wordRecieve.substring(0,3));
+			}
+		}
 	}
 	}
 		
@@ -115,12 +167,10 @@ public class TangleOfStrings {
 		}
 	}
 	
-	public static void findReplace (String wordRecieve) {
-		//work on this part
-		int begin = 0;
-		int end = 5;
-		String Target = wordRecieve.substring(begin, end);
-		String Replace = wordRecieve.replace( Target, "doggo");
-		System.out.print(Replace);
+	public static void findReplace (String wordRecive, String replace, String deepboi) {
+		System.out.println(wordRecive.replaceAll(replace, deepboi));
+		
 	}
+
+	
 }
