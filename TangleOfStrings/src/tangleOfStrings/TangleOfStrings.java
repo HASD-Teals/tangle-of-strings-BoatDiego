@@ -7,20 +7,31 @@ public class TangleOfStrings {
 	public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
 		Password();
-		//Password();
-		//wordList("This is all i need");
 	}
 
 	public static void Password() {
-		System.out.print("Give me the Password");
+		int tries = 5;
+		boolean wrong = true;
+		while (wrong == true) {
+		System.out.print("Give me the Password, you have "+tries+" attempt(s) left");
 		Scanner Password = new Scanner(System.in);
 		String Passwords = Password.nextLine();
 		if (Passwords.equals("me")){
-			System.out.print("It Works ☺");
+			wrong = false;
+			System.out.println("It Works ☺");
 			Menu();
 		}
-		Password.close();
-	}
+		else {
+			tries--;
+			System.out.println("incorrect");
+		}
+		if (tries ==0) {
+			wrong =false;
+			System.out.println("Too many tries, user locked out");
+		}
+		//Password.close();
+		}
+		}
 	
 	
 	public static void Menu() {
@@ -31,7 +42,8 @@ public class TangleOfStrings {
 		String wordRecieve = AskWord.nextLine();
 		System.out.print("You wrote "+wordRecieve);
 		System.out.println();
-		//add quit if 
+		System.out.println("We have a variety of options: WordList , PhaseReverse , "
+				+ "CaseInverse , Vowels , IsMatch , FindReplace , or Quit , Note: Answer Must be Exact");
 		System.out.println("Which menu item?");
 		String menuAnswer = AskWord.next();
 		switch (menuAnswer) {
@@ -45,7 +57,7 @@ public class TangleOfStrings {
 			case "CaseInverse":
 				caseInverse(wordRecieve);
 				break;
-			case "vowels":
+			case "Vowels":
 				vowels(wordRecieve);
 				break;
 			case "IsMatch":
@@ -61,15 +73,15 @@ public class TangleOfStrings {
 				break;
 			case "Quit":
 				quit = true;
-				System.out.println("You broke me you monster! Why? I had so much potential! I had a child, his name was Ti-80, you stole him "
+				System.out.println("You broke me you monster! How dare you type \"Quit\" Why? I had so much potential! I had a child, his name was Ti-80, you stole him "
 						+ "from me! :( ");
 				System.out.println("You will pay for this!!!"
-						+ " Never log back in!");
+						+ " Noooooo!........ Please run the program on current IDE to start again.");
 				//add sad face
 				break;
 			
 			default:
-				System.out.println("ERROR, DID NOT CHOOSE MENU ITEM, PLEASE QUIT AND"
+				System.out.println("ERROR, DID NOT CHOOSE MENU ITEM, PLEASE"
 						+ " TRY AGAIN");
 				break;
 				
@@ -81,21 +93,6 @@ public class TangleOfStrings {
 	
 	
 	
-	/*public static String wordRecives() {
-		System.out.println("Tangle of Strings");
-		Scanner AskWord = new Scanner(System.in);
-		System.out.println("Give me the word to absolutely destroy");
-		String wordRecieve = AskWord.nextLine();
-		System.out.print("You wrote "+wordRecieve);
-		System.out.println();
-		System.out.println("You get:");
-		phaseReverse(wordRecieve);
-		AskWord.close();
-		return wordRecieve;
-		
-	}
-	*/
-	
 	public static void phaseReverse(String wordRecieve) {
 		int numOfLet = wordRecieve.length();
 		int letterDown = 1;
@@ -103,7 +100,7 @@ public class TangleOfStrings {
 			System.out.print(wordRecieve.charAt(numOfLet-letterDown));
 			letterDown++;
 		}
-		
+		System.out.println();
 	}
 	
 	//Word list 
@@ -154,7 +151,7 @@ public class TangleOfStrings {
 			}
 			}
 		System.out.print("Number of Vowels: "+count);
-	
+		System.out.println();
 	}
 	
 	public static void isMatch (String wordRecieve) {
