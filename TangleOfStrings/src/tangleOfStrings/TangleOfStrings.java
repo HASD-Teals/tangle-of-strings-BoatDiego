@@ -35,7 +35,7 @@ public class TangleOfStrings {
 		boolean quit = false;
 		while (quit == false) {	
 		Scanner AskWord = new Scanner(System.in);
-		System.out.println("Give me the word to absolutely destroy");
+		System.out.println("Give me the String to absolutely destroy");
 		String wordReceive = AskWord.nextLine();
 		System.out.print("You wrote "+wordReceive);
 		System.out.println();
@@ -45,8 +45,8 @@ public class TangleOfStrings {
 		String menuAnswer = AskWord.next();
 		switch (menuAnswer) {
 			case "WordList":
-				int num = AskWord.nextInt();
 				System.out.println("Enter number");
+				int num = AskWord.nextInt();
 				wordList(wordReceive, num);
 				AskWord.reset();
 				break;
@@ -72,21 +72,18 @@ public class TangleOfStrings {
 				break;
 			case "Quit":
 				quit = true;
-				System.out.println("You broke me you monster! How dare you type \"Quit\" Why? I had so much potential! I had a child, his name was Ti-80, you stole him "
+				System.out.println("You broke me you monster! How dare you type \"Quit\", Why? I had so much potential! I had a child, his name was Ti-80, you stole him "
 						+ "from me! :( ");
 				System.out.println("You will pay for this!!!"
-						+ " Noooooo!........ Please run the program on current IDE to start again.");
-				//add sad face
+						+ " Noooooo!........ Please run the program on current IDE to start again. 😔");
+				
 				break;
 			
 			default:
 				System.out.println("ERROR, DID NOT CHOOSE MENU ITEM, PLEASE"
 						+ " TRY AGAIN");
-				break;
-				
-				
+				break;		
 		}
-		
 		}
 		}
 	public static void phaseReverse(String wordReceive) {
@@ -103,23 +100,22 @@ public class TangleOfStrings {
 		int first = 0;
 		String NewWord;
 		for (int i=0; i< wordReceive.length();i++) {
-			if (wordReceive.charAt(1)==' ') {
+			if (wordReceive.charAt(i)==' ') {
 				NewWord = wordReceive.substring(first , i);
 				first = i+1;
 				if (NewWord.length() == Num) {
 					System.out.println(NewWord);
 				}
-			}
-			
-			
+			}	
 		}
-		
-		
-		
+		System.out.println();
 	}
 	public static void caseInverse(String wordReceive) {
 		for(int i = 0; i < wordReceive.length();i++){
 			char Chara = wordReceive.charAt(i);
+			if (Chara == ' ') {
+				System.out.print(" ");
+			}
 			if (Chara >= 'A'&& Chara <='Z') {
 				char Upper = wordReceive.charAt(i);
 				String UpperS = String.valueOf(Upper);
@@ -130,10 +126,8 @@ public class TangleOfStrings {
 				String lowerS = String.valueOf(lower);
 				System.out.print(lowerS.toUpperCase());
 			}
-			
-			
-		}
-		
+				}
+		System.out.println();
 	}
 	public static void vowels(String wordReceive) {
 		int count = 0 ;
@@ -160,6 +154,5 @@ public class TangleOfStrings {
 	}
 	public static void findReplace (String wordReceive, String replace, String deepboi) {
 		System.out.println(wordReceive.replaceAll(replace, deepboi));
-		
 	}
-}
+	}
