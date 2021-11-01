@@ -8,7 +8,6 @@ public class TangleOfStrings {
 		System.out.println("Tangle of Strings");
 		Password();
 	}
-
 	public static void Password() {
 		int tries = 5;
 		boolean wrong = true;
@@ -32,15 +31,13 @@ public class TangleOfStrings {
 		//Password.close();
 		}
 		}
-	
-	
 	public static void Menu() {
 		boolean quit = false;
 		while (quit == false) {	
 		Scanner AskWord = new Scanner(System.in);
 		System.out.println("Give me the word to absolutely destroy");
-		String wordRecieve = AskWord.nextLine();
-		System.out.print("You wrote "+wordRecieve);
+		String wordReceive = AskWord.nextLine();
+		System.out.print("You wrote "+wordReceive);
 		System.out.println();
 		System.out.println("We have a variety of options: WordList , PhaseReverse , "
 				+ "CaseInverse , Vowels , IsMatch , FindReplace , or Quit , Note: Answer Must be Exact");
@@ -48,20 +45,22 @@ public class TangleOfStrings {
 		String menuAnswer = AskWord.next();
 		switch (menuAnswer) {
 			case "WordList":
-				wordList(wordRecieve);
+				int num = AskWord.nextInt();
+				System.out.println("Enter number");
+				wordList(wordReceive, num);
 				AskWord.reset();
 				break;
 			case "PhaseReverse":
-				phaseReverse(wordRecieve);
+				phaseReverse(wordReceive);
 				break;
 			case "CaseInverse":
-				caseInverse(wordRecieve);
+				caseInverse(wordReceive);
 				break;
 			case "Vowels":
-				vowels(wordRecieve);
+				vowels(wordReceive);
 				break;
 			case "IsMatch":
-				isMatch(wordRecieve);
+				isMatch(wordReceive);
 				break;
 			case "FindReplace":
 				System.out.println("What do you want to replace??????? >:(");
@@ -69,7 +68,7 @@ public class TangleOfStrings {
 				System.out.println("What do you want to replace it with????");
 				String maple2 = AskWord.next();
 				
-				findReplace(wordRecieve, maple, maple2);
+				findReplace(wordReceive, maple, maple2);
 				break;
 			case "Quit":
 				quit = true;
@@ -90,47 +89,44 @@ public class TangleOfStrings {
 		
 		}
 		}
-	
-	
-	
-	public static void phaseReverse(String wordRecieve) {
-		int numOfLet = wordRecieve.length();
+	public static void phaseReverse(String wordReceive) {
+		int numOfLet = wordReceive.length();
 		int letterDown = 1;
 		for (int ii = 0; ii<numOfLet ;ii++) {
-			System.out.print(wordRecieve.charAt(numOfLet-letterDown));
+			System.out.print(wordReceive.charAt(numOfLet-letterDown));
 			letterDown++;
 		}
 		System.out.println();
 	}
-	
-	//Word list 
-	public static void wordList(String wordRecieve) {
-		if (wordRecieve.contains(" ") ) {
-		for (int i =0; i<wordRecieve.length();i++) {
-			char a = wordRecieve.charAt(i);
-			if (a == ' ') {
-				System.out.println(wordRecieve.substring(i-1));
-				
-				break;
+	//Received help from Wes
+	public static void wordList(String wordReceive, int Num) {
+		int first = 0;
+		String NewWord;
+		for (int i=0; i< wordReceive.length();i++) {
+			if (wordReceive.charAt(1)==' ') {
+				NewWord = wordReceive.substring(first , i);
+				first = i+1;
+				if (NewWord.length() == Num) {
+					System.out.println(NewWord);
+				}
 			}
-			else {
-				System.out.println(wordRecieve.substring(0,3));
-			}
+			
+			
 		}
-	}
-	}
 		
-	
-	public static void caseInverse(String wordRecieve) {
-		for(int i = 0; i < wordRecieve.length();i++){
-			char Chara = wordRecieve.charAt(i);
+		
+		
+	}
+	public static void caseInverse(String wordReceive) {
+		for(int i = 0; i < wordReceive.length();i++){
+			char Chara = wordReceive.charAt(i);
 			if (Chara >= 'A'&& Chara <='Z') {
-				char Upper = wordRecieve.charAt(i);
+				char Upper = wordReceive.charAt(i);
 				String UpperS = String.valueOf(Upper);
 				System.out.print(UpperS.toLowerCase());
 			}
 			else if (Chara >= 'a'&&Chara <='z') {
-				char lower = wordRecieve.charAt(i);
+				char lower = wordReceive.charAt(i);
 				String lowerS = String.valueOf(lower);
 				System.out.print(lowerS.toUpperCase());
 			}
@@ -139,10 +135,10 @@ public class TangleOfStrings {
 		}
 		
 	}
-	public static void vowels(String wordRecieve) {
+	public static void vowels(String wordReceive) {
 		int count = 0 ;
-		for (int i = 0; i<wordRecieve.length(); i++) {
-			char vowe = wordRecieve.charAt(i);
+		for (int i = 0; i<wordReceive.length(); i++) {
+			char vowe = wordReceive.charAt(i);
 			if (vowe == 'a'||vowe == 'e'||vowe == 'i'||vowe == 'o'||vowe =='u'||vowe =='A'||vowe == 'E'
 				|| vowe =='I'||vowe =='O'||vowe == 'U'){
 				//Adds another vowel
@@ -153,21 +149,17 @@ public class TangleOfStrings {
 		System.out.print("Number of Vowels: "+count);
 		System.out.println();
 	}
-	
-	public static void isMatch (String wordRecieve) {
+	public static void isMatch (String wordReceive) {
 		System.out.println("Let's see if your String matches mine...");
-		if (wordRecieve.equals("Super Doggo")) {
+		if (wordReceive.equals("Super Doggo")) {
 			System.out.println("Your String matches mine");
 		}
 		else {
 			System.out.println("Your String does not match mine and is deemed inferior");
 		}
 	}
-	
-	public static void findReplace (String wordRecive, String replace, String deepboi) {
-		System.out.println(wordRecive.replaceAll(replace, deepboi));
+	public static void findReplace (String wordReceive, String replace, String deepboi) {
+		System.out.println(wordReceive.replaceAll(replace, deepboi));
 		
 	}
-
-	
 }
