@@ -3,7 +3,6 @@ package tangleOfStrings;
 import java.util.Scanner;
 
 public class TangleOfStrings {
-
 	public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
 		Password();
@@ -40,7 +39,7 @@ public class TangleOfStrings {
 		System.out.print("You wrote "+wordReceive);
 		System.out.println();
 		System.out.println("We have a variety of options: WordList , PhaseReverse , "
-				+ "CaseInverse , Vowels , IsMatch , FindReplace , or Quit , Note: Answer Must be Exact");
+				+ "CaseInverse , Vowels , IsMatch , FindReplace , FindPalindrome or Quit , Note: Answer Must be Exact");
 		System.out.println("Which menu item?");
 		String menuAnswer = AskWord.next();
 		switch (menuAnswer) {
@@ -69,6 +68,9 @@ public class TangleOfStrings {
 				String maple2 = AskWord.next();
 				
 				findReplace(wordReceive, maple, maple2);
+				break;
+			case "FindPalindrome":
+				findPalindrome(wordReceive);
 				break;
 			case "Quit":
 				quit = true;
@@ -155,4 +157,21 @@ public class TangleOfStrings {
 	public static void findReplace (String wordReceive, String replace, String deepboi) {
 		System.out.println(wordReceive.replaceAll(replace, deepboi));
 	}
+	public static void findPalindrome(String wordReceive) {
+		String NewStr = "";
+		int numOfLet = wordReceive.length();
+		int letterDown = 1;
+		for (int ii = 0; ii<numOfLet ;ii++) {
+			NewStr = NewStr+String.valueOf(wordReceive.charAt(numOfLet-letterDown));
+			letterDown++;
+		}
+		System.out.println(NewStr);
+		if (NewStr.equalsIgnoreCase(wordReceive)) {
+			System.out.println("Your String is a Palindrome!!");
+		}
+		else {
+			System.out.println("Your String is not a Palindrome.");
+		}
+	
 	}
+}
