@@ -1,9 +1,13 @@
 package tangleOfStrings;
 
 import java.util.Scanner;
+/*
+All you have to do is follow the questions of the program. 
+Some things are case sensitive so be sure to write them correctly.
 
-public class TangleOfStrings {
-	public static void main(String[] args) {
+*/
+public class TangleOfStrings {	
+public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
 		Password();
 	}
@@ -59,7 +63,9 @@ public class TangleOfStrings {
 				vowels(wordReceive);
 				break;
 			case "IsMatch":
-				isMatch(wordReceive);
+				System.out.println("Add string to compare to");
+				String cowCompare = AskWord.next();
+				isMatch(wordReceive, cowCompare);
 				break;
 			case "FindReplace":
 				System.out.println("What do you want to replace??????? >:(");
@@ -145,13 +151,13 @@ public class TangleOfStrings {
 		System.out.print("Number of Vowels: "+count);
 		System.out.println();
 	}
-	public static void isMatch (String wordReceive) {
-		System.out.println("Let's see if your String matches mine...");
-		if (wordReceive.equals("Super Doggo")) {
-			System.out.println("Your String matches mine");
+	public static void isMatch (String wordReceive, String SuperDog) {
+		System.out.println("Let's see if your String matches...");
+		if (wordReceive.equals(SuperDog)) {
+			System.out.println("Your String matches");
 		}
 		else {
-			System.out.println("Your String does not match mine and is deemed inferior");
+			System.out.println("Your String does not match and is deemed inferior");
 		}
 	}
 	public static void findReplace (String wordReceive, String replace, String deepboi) {
