@@ -4,6 +4,7 @@ import java.util.Scanner;
 /*
 All you have to do is follow the questions of the program. 
 Some things are case sensitive so be sure to write them correctly.
+Have fun with this tangle of strings! P.S this computer has feelings.
 
 */
 public class TangleOfStrings {	
@@ -11,6 +12,8 @@ public static void main(String[] args) {
 		System.out.println("Tangle of Strings");
 		Password();
 	}
+// this Password will give you 5 tries then locks you out
+//if the password is true, it will initiate the menu
 	public static void Password() {
 		int tries = 5;
 		boolean wrong = true;
@@ -31,9 +34,10 @@ public static void main(String[] args) {
 			wrong =false;
 			System.out.println("Too many tries, user locked out");
 		}
-		//Password.close();
+
 		}
 		}
+// the menu is infinite. It will ask for a string then offer methods
 	public static void Menu() {
 		boolean quit = false;
 		while (quit == false) {	
@@ -94,6 +98,7 @@ public static void main(String[] args) {
 		}
 		}
 		}
+// finds the last letter, prints it and continue it by subtracting the length by 1
 	public static void phaseReverse(String wordReceive) {
 		int numOfLet = wordReceive.length();
 		int letterDown = 1;
@@ -104,6 +109,7 @@ public static void main(String[] args) {
 		System.out.println();
 	}
 	//Received help from Wes
+//finds all the words by their origin, then prints its substring
 	public static void wordList(String wordReceive, int Num) {
 		int first = 0;
 		String NewWord;
@@ -118,6 +124,7 @@ public static void main(String[] args) {
 		}
 		System.out.println();
 	}
+//finds if a letter is upper/lower case by using its number then inverses case
 	public static void caseInverse(String wordReceive) {
 		for(int i = 0; i < wordReceive.length();i++){
 			char Chara = wordReceive.charAt(i);
@@ -137,6 +144,7 @@ public static void main(String[] args) {
 				}
 		System.out.println();
 	}
+//finds if the string has a vowel, if it does, it adds 1 increment to value
 	public static void vowels(String wordReceive) {
 		int count = 0 ;
 		for (int i = 0; i<wordReceive.length(); i++) {
@@ -151,6 +159,7 @@ public static void main(String[] args) {
 		System.out.print("Number of Vowels: "+count);
 		System.out.println();
 	}
+//compares two strings given by the user, if true, it will give a response 
 	public static void isMatch (String wordReceive, String SuperDog) {
 		System.out.println("Let's see if your String matches...");
 		if (wordReceive.equals(SuperDog)) {
@@ -160,9 +169,11 @@ public static void main(String[] args) {
 			System.out.println("Your String does not match and is deemed inferior");
 		}
 	}
+//replaces a string with another with user input
 	public static void findReplace (String wordReceive, String replace, String deepboi) {
 		System.out.println(wordReceive.replaceAll(replace, deepboi));
 	}
+//reverses the phrase then reads if the new equals the old without case sensitivity
 	public static void findPalindrome(String wordReceive) {
 		String NewStr = "";
 		int numOfLet = wordReceive.length();
