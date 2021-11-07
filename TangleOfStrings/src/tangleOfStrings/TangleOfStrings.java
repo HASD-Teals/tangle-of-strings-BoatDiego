@@ -9,7 +9,6 @@ Have fun with this tangle of strings! P.S this computer has feelings.
 */
 public class TangleOfStrings {	
 public static void main(String[] args) {
-		// This looks good - TS
 		System.out.println("Tangle of Strings");
 		Password();
 	}
